@@ -58,6 +58,9 @@ async function compute(artwork)
 	ctx.width = artwork.width;
 	ctx.height = artwork.height;
 	await ctx.drawImage(artwork, 0, 0);
+	
+	// :MARSEYCRAZYTROLLFACE: DELAYS ARE THE BEST WAY TO SOLVE PROBLEMS YOU DON'T UNDERSTAND
+	await new Promise(r => setTimeout(r, 750));
 
 	// data
 	const imgData = ctx.getImageData(0, 0, ctx.width, ctx.height);
