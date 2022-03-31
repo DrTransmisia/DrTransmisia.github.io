@@ -26,18 +26,21 @@ async function computeFromInput()
 
 async function computeFromURL(url)
 {
-	let artwork = new Image();
-	//artwork.crossOrigin = "anonymous";
+	for(let i = 0; i < 2; i++)
+	{
+		let artwork = new Image();
+		//artwork.crossOrigin = "anonymous";
 
-	promise = new Promise((resolve, reject) => {
-		artwork.onload = resolve;
-	});
-	artwork.src = url;
-	//await promise;
+		promise = new Promise((resolve, reject) => {
+			artwork.onload = resolve;
+		});
+		artwork.src = url;
+		//await promise;
 
-	document.body.append(artwork);
+		document.body.append(artwork);
 
-	compute(artwork);
+		compute(artwork);
+	}
 }
 
 async function compute(artwork)
