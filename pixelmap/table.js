@@ -57,7 +57,7 @@ async function compute(artwork)
 	// Draw png in the canvas
 	ctx.width = artwork.width;
 	ctx.height = artwork.height;
-	ctx.drawImage(artwork, 0, 0);
+	await ctx.drawImage(artwork, 0, 0);
 
 	// data
 	const imgData = ctx.getImageData(0, 0, artwork.width, artwork.height);
