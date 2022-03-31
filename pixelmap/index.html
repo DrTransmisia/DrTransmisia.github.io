@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<title></title>
+	</head>
+
+<body>
+	<style>
+		label, button {
+			display: block;
+			margin-top: 5px;
+		}
+
+		#table thead th {
+			position: sticky;
+			top: 0;
+			z-index: 1;
+			background-color: white;
+		}
+
+		#table { overflow: auto; height: 100%; overflow-y: scroll; }
+		
+		#table td {
+			height: 50px;
+			width:  50px;
+		}
+	</style>
+	<label>
+		Load a PNG file
+		<input id="file-input" type="file" accept=".png,image/png">
+	</label>
+	<label>
+		Insert target coordinates:
+		x = <input type="number" value="400" min="0" max="1000" step="1" id="x-input">
+		y = <input type="number" value="800" min="0" max="1000" step="1" id="y-input">
+	</label>
+	<button id="compute-button">COMPUTE FROM INPUT FILE!</button>
+	<button onclick="computeFromURL('OPTIONA.png')">COMPUTE OPTION A</button>
+	<table id="table" width="100%" border="1">
+		
+	</table>
+
+	<script src="table.js"></script>
+</body>
+</html>
+
