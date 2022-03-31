@@ -60,7 +60,7 @@ async function compute(artwork)
 	await ctx.drawImage(artwork, 0, 0);
 
 	// data
-	const imgData = ctx.getImageData(0, 0, artwork.width, artwork.height);
+	const imgData = ctx.getImageData(0, 0, ctx.width, ctx.height);
 	const data = imgData.data;
 
 	// now reset table
