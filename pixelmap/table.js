@@ -26,7 +26,7 @@ async function computeFromInput()
 
 async function computeFromURL(url)
 {
-	for(let i = 0; i < 2; i++)
+	for(let i = 0; i < 3; i++)
 	{
 		let artwork = new Image();
 		//artwork.crossOrigin = "anonymous";
@@ -38,6 +38,9 @@ async function computeFromURL(url)
 		//await promise;
 
 		document.body.append(artwork);
+		
+		// :MARSEYTROLLGUN: DELAYS ARE THE BEST WAY TO SOLVE PROBLEMS YOU DON'T UNDERSTAND
+		await new Promise(r => setTimeout(r, 750));
 
 		compute(artwork);
 	}
@@ -62,8 +65,8 @@ async function compute(artwork)
 	ctx.height = artwork.height;
 	await ctx.drawImage(artwork, 0, 0);
 	
-	// :MARSEYCRAZYTROLLFACE: DELAYS ARE THE BEST WAY TO SOLVE PROBLEMS YOU DON'T UNDERSTAND
-	await new Promise(r => setTimeout(r, 750));
+	// :MARSEYTROLLGUN: DELAYS ARE THE BEST WAY TO SOLVE PROBLEMS YOU DON'T UNDERSTAND
+	await new Promise(r => setTimeout(r, 50));
 
 	// data
 	const imgData = ctx.getImageData(0, 0, ctx.width, ctx.height);
