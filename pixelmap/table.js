@@ -134,7 +134,7 @@ function navigate(ev)
 	let x = ev.target.dataset.x;
 	let y = ev.target.dataset.y;
 
-	window.open("https://www.reddit.com/r/place/?cx=" + x + "&cy=" + y + "&px=29", '_blank').focus();
+	window.open("https://new.reddit.com/r/place/?cx=" + x + "&cy=" + y + "&px=29", '_blank').focus();
 }
 
 document.getElementById("compute-button").onclick = computeFromInput;
