@@ -110,6 +110,11 @@ async function compute(artwork)
 			let cell = document.createElement("td");
 			cell.style.backgroundColor = "rgb(" + red + "," + green + ',' + blue +")";
 			cell.title = "Coordinates: (" + (col + offsetX) + "," + (row + offsetY) + ")";
+			
+			// On click handler
+			cell.dataset.x = col + offsetX;
+			cell.dataset.y = row + offsetY;
+			cell.onclick = navigate;
 
 			tableRow.append(cell);
 
@@ -119,6 +124,17 @@ async function compute(artwork)
 
 		table.append(tableRow)
 	}
+}
+
+function navigate(ev)
+{
+	if(!confirm("I'll open the coordinates of this pixel of r/place.\nShall I proceed?\n\nOn Reddit you'll have to click once on the canvas to activate it. Please double ceck coordinates!"))
+		return;
+
+	let x = ev.target.dataset.x;
+	let y = ev.target.dataset.y;
+
+	window.open("https://www.reddit.com/r/place/?cx=" + x + "&cy=" + y + "&px=29", '_blank').focus();
 }
 
 document.getElementById("compute-button").onclick = computeFromInput;
