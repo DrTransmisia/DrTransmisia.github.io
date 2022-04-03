@@ -29,7 +29,7 @@
 			width:  50px;
 		}
 	</style>
-	<label hidden>
+	<label style="display: none;">
 		Load a PNG file
 		<input id="file-input" type="file" accept=".png,image/png">
 	</label>
@@ -38,8 +38,8 @@
 		x = <input type="number" value="99" min="0" max="2000" step="1" id="x-input">
 		y = <input type="number" value="699" min="0" max="2000" step="1" id="y-input">
 	</label>
-	<button id="compute-button">COMPUTE FROM INPUT FILE!</button>
-	<button hidden onclick="computeFromURL('theplan.png')">COMPUTE THE PLAN</button>
+	<button style="display: none;" id="compute-button">COMPUTE FROM INPUT FILE!</button>
+	<button style="display: none;" onclick="computeFromURL('theplan.png')">COMPUTE THE PLAN</button>
 	<p>After the table has been generated, click on a cell to go on the Reddit's canvas!</p>
 	<table id="table" width="100%" border="1">
 		
