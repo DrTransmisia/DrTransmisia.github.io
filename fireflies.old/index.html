@@ -6,6 +6,27 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Test page for old code</title>
 		<style>
+			@keyframes post-tilt {
+			0% {transform: rotate(0deg);}
+			25% {transform: rotate(3deg);}
+			75% {transform: rotate(-3deg);}
+			100% {transform: rotate(0deg);}
+			}
+			@media (max-width: 720px) {
+				@keyframes post-tilt {
+					0% {transform: rotate(0deg);}
+					25% {transform: rotate(3/4deg);}
+					75% {transform: rotate(-3/4deg);}
+					100% {transform: rotate(0deg);}
+				}
+			}
+			#post-root {
+				animation-name: post-tilt !important;
+				animation-duration: 60s !important;
+				animation-iteration-count: infinite !important;
+				animation-direction: alternate !important;
+				animation-timing-function: linear !important;
+			}
 			body {
 				background-color: midnightblue;
 				color: wheat;
@@ -33,8 +54,10 @@
 					padding: 10px;
 				}
 			}
-		</style>
-		<style>
+			.mirrored, img[alt^=":!"], img[alt^=":#!"], .pat-container[alt^=":!"], .pat-container[alt^=":#!"] {
+				transform: scaleX(-1);
+				-webkit-transform: scaleX(-1);
+			}
 			:root {
 				--rdrama-seal-width: 100px;
 				--rdrama-seal-height: 89.5px;
@@ -54,14 +77,67 @@
 			
 			.seal {
 				position:fixed;
-				z-index:9999;
+				z-index:9998;
 				pointer-events: none;
 				width: 100% !important;
 				height: 100% !important;
 			}
 		</style>
+		<style>
+			.train {
+				position:fixed;
+				z-index:9998;
+				pointer-events: none;
+			}
+			.train1 {
+				top: 10%
+			}
+			.train2 {
+				top: 35%
+			}
+			.train3 {
+				top: 60%
+			}
+			.train4 {
+				top: 85%
+			}
+			.trainimg {
+				width: 100px;
+				height: 51px;
+			}
+			@media (max-width: 992px) {
+				.trainimg {
+					width: 40px;
+					height: 20px;
+				}
+			}
+			.scooterimg {
+				width: 100px;
+				height: 135px;
+			}
+			@media (max-width: 992px) {
+				.scooterimg {
+					width: 40px;
+					height: 54px;
+				}
+			}
+
+			#fps {
+				z-index:9999;
+				position: fixed;
+				top: 0;
+				left: 0;
+				background-color: black;
+				color: green;
+				font-family: monospace;
+				height: 50px;
+				width: 100px;
+				font-size: larger;
+			}
+		</style>
 	</head>
 <body>
+	<div id="fps"></div>
 	<article>
 		<h1>Page control</h1>
 		<button id="startbtn">START</button>
@@ -72,7 +148,7 @@
 		<img alt="header icon" src="https://rdrama.net/assets/images/rDrama/headericon.webp?v=1019" height="100px">
 		<img class="ml-1" id="logo" alt="logo" src="https://rdrama.net/assets/images/rDrama/logo.webp?v=1013" height="100px">
 	</article>
-	<article>
+	<article id="post-root">
 		<h1>Un titolo</h1>
 		<p>
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ipsum arcu, volutpat in pellentesque ac, porta vel felis. Etiam vulputate leo non mattis pharetra. Mauris et euismod sapien. Ut id blandit augue, ac pretium ligula. Aenean sed tellus et turpis egestas blandit lobortis id sem. Sed lacinia nunc quam, eget pellentesque mi maximus id. Etiam tempus felis lorem, sed porttitor urna ullamcorper eu. Nulla sit amet felis id orci fringilla faucibus.
@@ -116,6 +192,36 @@
 	Integer suscipit tortor at neque volutpat, vel egestas turpis consectetur. Nullam sit amet hendrerit ligula. Proin vehicula consequat eleifend. Etiam id blandit diam. Sed convallis vitae sapien venenatis aliquet. In porta mattis odio, sit amet blandit mi tincidunt ut. Sed ultricies lobortis odio eget interdum. In rhoncus tristique nibh, nec convallis lectus bibendum ut. Fusce sed sollicitudin leo. Nullam commodo risus ex, eget viverra ante facilisis ac. Sed dictum enim nec iaculis rutrum. Aliquam urna enim, tincidunt in sollicitudin sit amet, porta in nibh. 
 		</p>
 	</article>
+
+	<marquee class="train train1" direction="left" scrollamount=10 width="100%">
+		<img alt=":#marseytrain:" class="trainimg mirrored" src="marseytrain.webp">
+	</marquee>
+	<marquee class="train train2" direction="right" scrollamount=10 width="100%">
+		<img alt=":#marseytrain:" class="trainimg" src="marseytrain.webp">
+	</marquee>
+	<marquee class="train train3" direction="left" scrollamount=10 width="100%">
+		<img alt=":#marseytrain:" class="trainimg mirrored" src="marseytrain.webp">
+	</marquee>
+	<marquee class="train train4" direction="right" scrollamount=10 width="100%">
+		<img alt=":#marseytrain:" class="trainimg" src="marseytrain.webp">
+	</marquee>
+
+	<marquee class="train train3" direction="right" scrollamount=10 width="100%">
+		<img alt=":#marseyscooter:" class="scooterimg" src="marseyscooter.webp">
+	</marquee>
+
+	<marquee class="train train4" direction="left" scrollamount=10 width="100%">
+		<img alt=":#marseyscooter:" class="scooterimg mirrored" src="marseyscooter.webp">
+	</marquee>
+
+	<marquee class="train train1" direction="right" scrollamount=10 width="100%">
+		<img alt=":#marseyscooter:" class="scooterimg" src="marseyscooter.webp">
+	</marquee>
+
+	<marquee class="train train2" direction="left" scrollamount=10 width="100%">
+		<img alt=":#marseyscooter:" class="scooterimg mirrored" src="marseyscooter.webp">
+	</marquee>
+
 	<template id="seal-template">
 		<div class="seal" height="100%" width="100%">
 			<img alt=":#marseywholesome:" class="sealimg" src="marseywholesome.webp">
@@ -124,4 +230,5 @@
 
 	<script src="critters.js"></script>
 	<script src="bussy.js"></script>
+	<script src="fps.js"></script>
 </body>

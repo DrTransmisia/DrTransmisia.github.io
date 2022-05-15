@@ -23,6 +23,8 @@ document.getElementById("stopbtn").onclick = () => {
 	fireflies = undefined;
 }
 
+document.getElementById("startbtn").click();
+
 class SealController {
 	/**
 	 * @type {HTMLTemplateElement}
