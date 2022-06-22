@@ -26,9 +26,9 @@ async function main() {
 	const tDOM = document.getElementById("bussy");
 	const outDOM = document.getElementById("out")
 
-	tDOM.onchange = (e) => {
-		outDOM.innerHTML = markdown(e.currentTarget.value);
-	};
+	document.addEventListener('keydown', () => {
+		outDOM.innerHTML = markdown(tDOM.value);
+	});
 };
 
 main();
