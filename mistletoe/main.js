@@ -1,4 +1,5 @@
 let pyodide;
+const startTime = performance.now()
 
 async function main() {
 	pyodide = await loadPyodide();
@@ -22,10 +23,13 @@ async function main() {
 	const markdown = pyodide.runPython("markdown")
 	console.log("markdown() ready!");
 
+	document.getElementById("bench").innerText = "I took " + (performance.now() - startTime) + "ms to load the fucking Python runtime 'n related shit!"
+
 	/** @type {HTMLTextAreaElement} */
 	const tDOM = document.getElementById("bussy");
 	const outDOM = document.getElementById("out")
 
+	outDOM.innerHTML = markdown(tDOM.value);
 	document.addEventListener('keyup', () => {
 		outDOM.innerHTML = markdown(tDOM.value);
 	});
