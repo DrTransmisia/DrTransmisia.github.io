@@ -5579,6 +5579,11 @@ audio, video {
 	}
 }
 
-g {
+g, .greentext {
 	color: #789922 !important
+}
+
+.profile-pic {
+	width: 20px;
+	height: 20px;
 }

@@ -16,6 +16,12 @@ async function main() {
 
 		def markdown(x):
 			r = DramaHTMLRenderer()
+
+			# demo stuff
+			r.getEmojiPath = lambda em: f'https://rdrama.net/e/{em}.webp'
+			r.getUserProfilePath = lambda username: f'https://rdrama.net/@{username}'
+			r.getUserProfilePic = lambda username: f'https://rdrama.net/@{username}/pic'
+
 			return r.render(Document(x))
 		
 		pass
