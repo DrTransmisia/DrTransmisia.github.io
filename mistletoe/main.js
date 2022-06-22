@@ -2,7 +2,8 @@ let pyodide;
 
 async function main() {
 	pyodide = await loadPyodide();
-	// Pyodide is now ready to use...
+	await pyodide.loadPackage("micropip");
+	
 	console.log(pyodide.runPython(`
 		print("BOOOOOTING")
 		import micropip
