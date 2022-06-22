@@ -8,7 +8,8 @@ async function main() {
 
 	pyodide.runPython(`
 		import micropip
-		micropip.install("mistletoe")
+		await micropip.install("mistletoe")
+		import mistletoe
 	`);
 
 	console.log("mistletoe ready!");
