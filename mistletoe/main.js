@@ -2,16 +2,8 @@ let pyodide;
 
 async function main() {
 	pyodide = await loadPyodide();
-	await pyodide.loadPackage("micropip");
 
-	console.log("micropip ready!");
-
-	await pyodide.runPython(`
-		import micropip
-		micropip.install("mistletoe")
-		import mistletoe
-	`);
-
+	await pyodide.loadPackage("https://DrTransmisia.github.io/mistletoe/mistletoe-0.8.2-py3-none-any.whl");
 	console.log("mistletoe ready!");
 
 	await pyodide.loadPackage("https://DrTransmisia.github.io/mistletoe/rdramamistletoe-0.0.1-py2.py3-none-any.whl");
