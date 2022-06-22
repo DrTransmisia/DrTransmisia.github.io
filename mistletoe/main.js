@@ -26,7 +26,7 @@ async function main() {
 	const tDOM = document.getElementById("bussy");
 	const outDOM = document.getElementById("out")
 
-	document.addEventListener('keydown', () => {
+	document.addEventListener('keyup', () => {
 		outDOM.innerHTML = markdown(tDOM.value);
 	});
 };
