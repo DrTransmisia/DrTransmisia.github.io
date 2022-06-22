@@ -18,7 +18,7 @@ async function main() {
 			r = DramaHTMLRenderer()
 
 			# demo stuff
-			r.getEmojiPath = lambda em: f'https://rdrama.net/e/{em}.webp'
+			r.getEmojiPath = lambda name: f"https://rdrama.net/e/{name}.webp"
 			r.getUserProfilePath = lambda username: f'https://rdrama.net/@{username}'
 			r.getUserProfilePic = lambda username: f'https://rdrama.net/@{username}/pic'
 
