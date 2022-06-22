@@ -2,14 +2,11 @@ let pyodide;
 
 async function main() {
 	pyodide = await loadPyodide();
-	await pyodide.loadPackage("micropip");
+	//await pyodide.loadPackage("micropip");
+	await pyodide.loadPackage("mistletoe");
+	await pyodide.loadPackage("https://DrTransmisia.github.io/mistletoe/rdramamistletoe-0.0.1-py2.py3-none-any.whl")
 
 	pyodide.runPython(`
-		print("BOOOOOTING")
-		import micropip
-		micropip.install("mistletoe")
-		micropip.install("https://DrTransmisia.github.io/mistletoe/rdramamistletoe-0.0.1-py2.py3-none-any.whl")
-
 		from rdramamistletoe.dramarender import DramaHTMLRenderer
 		from mistletoe import Document
 
