@@ -6,9 +6,9 @@ async function main() {
 
 	console.log("micropip ready!");
 
-	pyodide.runPython(`
+	await pyodide.runPython(`
 		import micropip
-		await micropip.install("mistletoe")
+		micropip.install("mistletoe")
 		import mistletoe
 	`);
 
