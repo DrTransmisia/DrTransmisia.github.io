@@ -19,8 +19,16 @@ async function main() {
 		
 		pass
 	`);
-
+	const markdown = pyodide.runPython("markdown")
 	console.log("markdown() ready!");
+
+	/** @type {HTMLTextAreaElement} */
+	const tDOM = document.getElementById("bussy");
+	const outDOM = document.getElementById("out")
+
+	tDOM.onchange((e) => {
+		outDOM.innerHTML = markdown(e.currentTarget.value);
+	})
 };
 
 main();
